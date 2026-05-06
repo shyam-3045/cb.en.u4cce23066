@@ -6,9 +6,11 @@ Full Stack Notification System built for the Affordmed Full Stack Evaluation.
 
 ### Frontend
 - React
-- Material UI
+- React Query
 - Axios
 - React Router
+- Basic CSS
+- Material UI
 
 ### Backend
 - Node.js
@@ -42,6 +44,9 @@ cd notification-system
 npm install
 npm run dev
 ```
+
+Frontend runs on:
+http://localhost:3000
 
 ## Run Backend
 
