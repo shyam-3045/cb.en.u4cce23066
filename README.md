@@ -1,43 +1,96 @@
 # Notification System
 
-Full Stack Notification System built for the Affordmed Full Stack Evaluation.
+A full stack Notification System developed as part of the Affordmed Full Stack Evaluation. The application is designed to handle student notifications related to Placements, Results and Events with support for filtering, pagination and priority based notification handling.
 
-## Tech Stack
+---
 
-### Frontend
+# Tech Stack
+
+## Frontend
 - React
+- React Router
 - React Query
 - Axios
-- React Router
-- Basic CSS
 - Material UI
+- Basic CSS
 
-### Backend
+## Backend
 - Node.js
 - Express.js
 
-## Features
+---
 
-- View all notifications
-- Priority inbox
-- Pagination
+# Features
+
+## Notifications Page
+- Fetch notifications from external API
+- Pagination support
+- Filter notifications by type
+- Responsive UI for desktop and mobile
+- Loading and error handling
+
+## Priority Inbox
+- Displays top priority unread notifications
+- Priority calculated using:
+  - Notification type weight
+  - Recency
+- Supports dynamic top `n` notifications
+
+## Notification Handling
+- Viewed notifications tracking
+- Read / unread distinction
+- Local state persistence using localStorage
+
+## Backend Features
 - Notification filtering
-- Responsive UI
-- Mark notifications as viewed
-- Priority based sorting
+- Priority sorting
+- Broadcast notification simulation
 - Logging middleware integration
+- REST API structure
 
-## Project Structure
+---
+
+# Priority Logic
+
+Priority is calculated based on:
+- Placement > Result > Event
+- Recent notifications receive higher priority
+
+Weights used:
+- Placement = 3
+- Result = 2
+- Event = 1
+
+Notifications are sorted using priority score and recency.
+
+---
+
+# Project Structure
 
 ```bash
 backend/
+│
+├── services/
+├── routes/
+├── utils/
+└── priorityInbox.js
+
 notification-system/
+│
+├── src/
+├── components/
+├── pages/
+├── customHooks/
+└── styles/
+
 screenshots/
 demo.mp4
 notification_system_design.md
 ```
 
-## Run Frontend
+---
+
+# Frontend Setup
 
 ```bash
 cd notification-system
@@ -46,12 +99,26 @@ npm run dev
 ```
 
 Frontend runs on:
-http://localhost:3000
 
-## Run Backend
+```bash
+http://localhost:3000
+```
+
+---
+
+# Backend Setup
 
 ```bash
 cd backend
 npm install
 npm start
 ```
+
+---
+
+# Additional Notes
+
+- Logging middleware was used throughout the backend implementation.
+- Priority Inbox logic was implemented separately as required in Stage 6.
+- Screenshots and demo video are included in the repository.
+- The application was developed with focus on clean UI, modular structure and scalability concepts.
